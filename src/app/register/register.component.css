@@ -1,0 +1,22 @@
+.remo {
+    background-image: url("https://wallpaperplay.com/walls/full/c/5/2/96183.jpg");
+    background-size : cover;
+    padding-bottom: 45px;
+}
+.h1 , h1{
+        color :black;
+        margin-left: 200px;
+        margin-top: 30px;
+        font-family:serif;
+        font-weight:bold;
+
+}
+span {
+    color:white;
+}
+.row{
+    margin-left:150px;
+}
+.radio{
+    font-weight: bold;
+}

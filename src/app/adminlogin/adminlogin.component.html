@@ -1,0 +1,51 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link rel="stylesheet" href="./emp.css"> -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<html>
+  <head>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+  </head>
+<body id="LoginForm">
+<div class="container">
+<h1 class="form-heading mt-4 mb-4" style="text-align: center">Welcome to Our company</h1>
+<div class="login-form">
+<div class="main-div">
+    <div class="panel">
+   <h2>Admin Login</h2>
+   <p>Please enter your username and password</p>
+   </div>
+    <form id="Login" class="form-group" action="\login\adminlogin" method="POST" [formGroup]="loginForm" (ngSubmit)="login()" >
+
+      <div class="form-group">
+        <label for="username" class="text-info">Username:</label><br>
+        <input type="text" name="username" id="username" formControlName="username" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="text-info">Password:</label><br>
+      <input type="password" name="password" id="password" formControlName="password" class="form-control">
+  </div>
+  <div class="form-group">
+      <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+      <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+  </div>
+  <div id="register-link" class="text-right">
+      <a routerLink="register" class="text-info">Register here</a>
+  </div>
+    </form>
+    </div>
+<p class="botto-text"></p>
+</div></div>
+
+
+</body>
+</html>

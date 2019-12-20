@@ -1,0 +1,123 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+ <div class="remo">
+
+<div class="container register "  >
+     <div class="row col-ml-12">  
+        <div class="register-right col-md-12 ">
+            <div class="tab-content " id="myTabContent">
+                <div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="h1">Registration Form</h3><br> 
+                        <div class="row register-form ">
+                            <div class="col-md-6 mb-4">
+                                <form action="/register" method="POST" [formGroup]="registerForm" (ngSubmit)="register()">
+                                    <h3 class="text-danger text-center"> {{errorMessage}}</h3>
+                                    <div class="form-group ">
+                                        <input type="text" formControlName="username"
+                                        class="form-control" placeholder="Username *"  name="username"
+                                        style="background-color:lightblue"  />
+                                        <div class="alert alert-danger" *ngIf="registerForm.get('username').touched && registerForm.get('username').invalid" >this field isrequired</div>
+                                       
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="url" formControlName="imageurl" class="form-control" required name="imageurl"
+                                            placeholder="image url *" value="" style="background-color:lightblue" />
+                                            <div class="alert alert-danger" *ngIf="registerForm.get('imageurl').touched && registerForm.get('imageurl').invalid" >this field isrequired</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" formControlName="firstname" class="form-control" required name="firstname"
+                                            placeholder="First Name *" value="" style="background-color:lightblue" />
+                                            <div class="alert alert-danger" *ngIf="registerForm.get('firstname').touched && registerForm.get('firstname').invalid" >this field isrequired</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" formControlName="lastname" class="form-control" placeholder="Last Name *" 
+                                        required value="" style="background-color:lightblue"/>
+                                        <div class="alert alert-danger" *ngIf="registerForm.get('lastname').touched && registerForm.get('lastname').invalid" >this field isrequired</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <select  formControlName="department" required class="form-control" 
+                                        style="background-color:lightblue">
+                                            <option class="hidden"  selected disabled>Select your Department</option>
+                                            <option>Accounting and Finance</option>
+                                            <option>Development</option>
+                                            <option>Human Resouce Management</option>
+                                            <option>Marketing</option>
+                                            <option>Production</option>
+                                            <option>Purchasing</option>
+                                            <option>Research and Development</option>
+                                            <option>Training</option>
+                                        </select>
+                                        <div class="alert alert-danger" *ngIf="registerForm.get('department').touched && registerForm.get('department').invalid" >this field isrequired</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <select  formControlName="grade" required class="form-control" 
+                                        placeholder="Grade*" value="" style="background-color:lightblue">
+                                        <option class="hidden"  selected disabled>Select your Grade</option>
+                                        <option>level-1</option>
+                                        <option>level-2</option>
+                                        <option>level-3</option>
+                                        <option>level-4</option>
+                                        <option>level-5</option>
+                                    </select>
+                                        <div class="alert alert-danger" *ngIf="registerForm.get('grade').touched && registerForm.get('grade').invalid" >this field isrequired</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <select  formControlName="maritalstatus" required class="form-control" 
+                                        style="background-color:lightblue">
+                                            <option   selected disabled>marital status</option>
+                                            <option>single</option>
+                                            <option>Married</option>
+                                        </select>
+                                    </div>
+                                    <div class="maxl">
+                                        <label class="radio inline"> 
+                                            <input type="radio"   name="gender" value="male" class="">
+                                             Male 
+                                        </label>
+                                        <label class="radio inline"> 
+                                            <input type="radio" name="gender" value="female" class="ml-2">
+                                            Female
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <select formControlName="designation" required class="form-control" 
+                                        placeholder="Your Designation *" value="" style="background-color:lightblue">
+                                        <option class="hidden"  selected disabled>Select your Designation</option>
+                                        <option>Android Developer</option>
+                                        <option>Bussiness Development Manager</option>
+                                        <option>CEO/MD</option>
+                                        <option>content Writer</option>
+                                        <option>General Manger</option>
+                                        <option>H.R Manager</option>
+                                        <option>Internet Marketing Head</option>
+                                        <option>JavaScript FullStack Developer</option>
+                                        <option>Project Manager</option>
+                                        <option>System Administrator</option>
+                                    </select>
+                                        <div class="alert alert-danger" *ngIf="registerForm.get('designation').touched && registerForm.get('designation').invalid" >this field isrequired</div>
+                                    </div>     
+                                    <div class="form-group">
+                                        <input type="password" id="password" formControlName="password" required class="form-control" 
+                                        placeholder="Password *" value="" style="background-color:lightblue"/>
+                                        <div class="alert alert-danger" *ngIf="registerForm.get('password').touched && registerForm.get('password').invalid" >this field isrequired</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" id="password2" formControlName="password2" required class="form-control"  placeholder="Confirm Password *" value="" style="background-color:lightblue"/>
+                                        <div class="alert alert-danger" *ngIf="registerForm.get('password2').touched && registerForm.get('password2').invalid" >this field isrequired</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit"  class="btn btn-info float-right" [disabled]="!registerForm.valid">Register</button>
+                                    </div>
+                                </form>
+                            </div>    
+                        </div>
+                    </div>                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+               

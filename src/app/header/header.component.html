@@ -1,0 +1,65 @@
+
+<script src="../../../jquery/jquery-3.4.1.min.js"></script>
+
+
+<!---------------home navbar--------------------------------------------------------------->
+<div >
+<nav class="navbar navbar-expand-lg navbar-dark  " style="background-color:gray;" >
+  <a class="navbar-brand " href="#">  <img src="http://cdn.onlinewebfonts.com/svg/img_396038.png" alt="" srcset="" height="40" width="70" class="ml-4"></a>
+  
+  <button class="navbar-toggler" type="button"
+   data-toggle="collapse" data-target="#navbarNav" 
+   aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <h2 >Employee Management System</h2>
+    <ul class="navbar-nav ml-auto" id="remo">
+      <li class="nav-item active mr-4 ">
+        <a class="nav-link" routerLink="/homebody">Home </a>
+      </li>
+      
+      <li class="nav-item mr-4 ml-4 active">
+        <a class="nav-link" routerLink="/about">About </a>
+      </li>
+      <li class="nav-item mr-4 ml-4 active">
+        <a class="nav-link" routerLink="/contact">Contacts</a>
+      </li>
+
+      
+      <li class="nav-item mr-4 ml-4 active" *ngIf="isLoggedIn">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+      
+      
+    </ul>
+   
+  </div>
+  <div class="dropdown" *ngIf="!isLoggedIn">
+    <button class="btn btn-sm dropdown-toggle bg-light mr-4 ml-4 active" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Log In
+    </button>
+    <div  class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+      <a class="dropdown-item" routerLink="/emplogin" >Employee Log In</a>
+      <a class="dropdown-item" routerLink="/adminlogin">Admin Log In</a>
+ 
+    </div>
+    
+  </div>
+  <ul class="navbar-nav mr-4 ml-4 active" *ngIf="!isLoggedIn" >
+    <li class="nav-item active">
+      <a href="" class="nav-link" routerLink="/register">Registers</a>
+</li> 
+      
+  </ul>
+   <hr>
+</nav>
+<div  style="background-color:dodgerblue;">
+<div class="container" >
+  <marquee width="100%" direction="left" height="20%">
+    Employee Management System is a ready source of information. It performs as a readily available source of information between the organization and the employee. Contact information, salary information, posts, work schedule, education information etc. is what most database systems consist of
+</marquee>
+</div>
+</div>
+</div>
+<!-------------------------------emp navbar-->

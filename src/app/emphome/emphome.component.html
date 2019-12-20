@@ -1,0 +1,42 @@
+<body>
+<div *ngIf="status">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:  #7172bb;">
+    <a class="navbar-brand" routerLink="/emphome"><h2 >Employee Home</h2></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+      
+      <div class=" mt-4 float-right mb-4">
+      <div class="form-inline my-2 my-lg-0 ">
+          <input class="form-control mr-sm-2 bg-light" type="search" placeholder="search by first name" aria-label="Search"  [(ngModel)]="searchname" />
+        </div>
+        </div>
+        
+
+<div class="container mt-4 ">
+    <div class="text-center"><h1 class="text-center" style="color: white">Employee Details</h1></div>
+  <br><br>
+  <div class=" row text-center">
+<div class="" *ngFor="let emp of users | filter: searchname">
+  <div class="card mr-4 mb-4 ml-4" style="width: 20rem;">
+    <img src="{{emp.imageurl}}" class="card-img-top" style="border-radius: 60px" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{emp._id}}</h5>
+      
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item ">{{emp.firstname}}</li>
+      <li class="list-group-item">{{emp.lastname}}</li>
+      <li class="list-group-item">{{emp.department}}</li>
+      <li class="list-group-item">{{emp.grade}}</li>
+      <li class="list-group-item">{{emp.designation}}</li>
+    </ul>
+    <div class="card-body">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+

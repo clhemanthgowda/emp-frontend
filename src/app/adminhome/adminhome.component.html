@@ -1,0 +1,105 @@
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark  text-center" style="background-color:  #7172bb;">
+    <a class="navbar-brand" routerLink="/adminhome"><h3>Admin Home</h3></a>
+</nav>
+
+     <!-- <div class="container text-center"> -->
+      <div class=" mt-4 float-right mb-4">
+      <div class="form-inline my-2 my-lg-0 ">
+          <input class="form-control mr-sm-2 bg-light" type="search" placeholder="search by first name" aria-label="Search"  [(ngModel)]="searchname" />
+        </div>
+        </div>
+
+        <div class="container mt-4">
+          <div class="text-center"><h1 class="text-center" style="color: white">Employee Details</h1></div>
+            <div class=" row text-center">
+          <div class="" *ngFor="let emp of users | filter: searchname">
+            <div class="card mr-4 mb-4 ml-4" style="width: 20rem;">
+              <img src="{{emp.imageurl}}" style="border-radius: 60px" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">ID:{{emp._id}}</h5>
+                
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item ">FirstName:{{emp.firstname}}</li>
+                <li class="list-group-item">{{emp.lastname}}</li>
+                <li class="list-group-item">{{emp.department}}</li>
+                <li class="list-group-item">{{emp.grade}}</li>
+                <li class="list-group-item">{{emp.designation}}</li>
+              </ul>
+              <div class="card-body">
+                  <button (click)="onEdit(emp)" class=" btn btn-warning">Update</button>
+                  <button class=" btn btn-danger" (click)="deleteData(emp)">Delete</button>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+    
+     <!-- <table class="table table-bordered bg-light mt-4 table">
+          <thead class="thead-dark">
+        <tr class="">
+       <th title="id of Employes" scope="col">ID</th>
+       <th scope="col">First Name</th>
+       <th scope="col">Last Name</th>
+       <th scope="col">Department</th>
+       <th scope="col">Grade</th>
+       <th scope="col">Designation</th>
+       <th scope="col">Update</th>
+       <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    
+      <tr *ngFor="let emp of users | filter: searchname">
+        <td>{{emp._id}}</td>
+        <td>{{emp.firstname |uppercase }}</td>
+        <td>{{emp.lastname |uppercase }}</td>
+        <td>{{emp.department}}</td>
+        <td>{{emp.grade}}</td>
+        <td>{{emp. designation}}</td>
+        <td> <button (click)="onEdit(emp)" class=" btn btn-warning">Update</button> </td>
+          <td> <button class=" btn btn-danger" (click)="deleteData(emp)">Delete</button> </td>
+       
+      </tr> 
+      </table>
+      <br><br><br><br>
+    </div> -->
+
+
+    <div class="col-md-4 offset-4 card mt-4 mb-4">
+      <div class="card-body">
+        <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedUser._id" class="form-control">
+          <div class="form-group">
+            <label for="firstname">Firstname</label>
+            <input type="text" name="firstname" #name="ngModel" [(ngModel)]="employeeService.selectedUser.firstname" placeholder="Firstname" class="form-control"required>
+          </div>
+          <div class="form-group">
+            <label for="lastname">lastname</label>
+            <input type="text" name="lastname" #name="ngModel" [(ngModel)]="employeeService.selectedUser.lastname" class="form-control" placeholder="Lastname">
+          </div>
+          <div class="form-group">
+              <label for="imageurl">ImageUrl</label>
+              <input type="text" name="imageurl" #name="ngModel" [(ngModel)]="employeeService.selectedUser.imageurl" class="form-control" placeholder="imageurl">
+            </div>
+          <div class="form-group">
+            <label for="department">Department</label>
+            <input type="text" name="department" #name="ngModel" [(ngModel)]="employeeService.selectedUser.department" class="form-control" placeholder="Department">
+          </div>
+          <div class="form-group">
+            <label for="grade">Grade</label>
+            <input type="text" name="grade" #name="ngModel" [(ngModel)]="employeeService.selectedUser.grade" class="form-control" placeholder="Grade">
+          </div>
+          <div class="form-group">
+            <label for="department">Designation</label>
+            <input type="text" name="designation" #name="ngModel" [(ngModel)]="employeeService.selectedUser.designation" class="form-control" placeholder="Designation">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-danger float-right" type="button" (click)="resetForm(userForm)">Reset</button>
+            <button class="btn btn-success float-left" type="submit" [disabled]="!userForm.valid">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <br><br><br><br>
+  </body>
